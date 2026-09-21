@@ -1,60 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <div class="app-wrapper">
-        <header class="app-header">
-            <div class="header-content">
-                <h1 class="app-title">Task Manager</h1>
-                <p class="app-subtitle">Stay organized and productive</p>
-            </div>
-        </header>
-
-        <main class="container">
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-label">Total Tasks</div>
-                    <div class="stat-number" id="totalTasks">0</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Active</div>
-                    <div class="stat-number" id="activeTasks">0</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Completed</div>
-                    <div class="stat-number" id="completedTasks">0</div>
-                </div>
-            </div>
-
-            <div class="input-section">
-                <div class="input-group">
-                    <input type="text" id="taskInput" placeholder="Add a new task..." />
-                    <input type="date" id="taskDate" />
-                    <button id="addBtn">Add</button>
-                </div>
-            </div>
-
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
-                <button class="filter-btn" data-filter="today">Today</button>
-                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
-            </div>
-
-            <ul id="todoList"></ul>
-
-            <button class="clear-completed" id="clearCompleted" style="display: none;">
-                Clear Completed Tasks
-            </button>
-        </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A romantic birthday surprise for the love of my life."
+    />
+    <title>Happy Birthday, My Love</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="intro-overlay" id="introOverlay" aria-live="polite">
+      <div class="intro-card reveal">
+        <p class="eyebrow">For the woman who makes my world brighter</p>
+        <h1>Happy Birthday, My Love ❤️</h1>
+        <p>
+          Today isn't just your birthday...<br />
+          it's a celebration of the person who makes my world brighter.
+        </p>
+        <button id="openSurpriseBtn" class="primary-btn" type="button">
+          Open Your Surprise 💌
+        </button>
+      </div>
     </div>
 
-    <script src="index.js"></script>
-</body>
+    <div class="background-hearts" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a href="#home" class="brand" aria-label="Go to home section">Forever ❤️</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <a href="#home">Home ❤️</a>
+          <a href="#story">Our Story</a>
+          <a href="#memories">Memories 📸</a>
+          <a href="#video">Video 🎬</a>
+          <a href="#notes">For You 💌</a>
+          <a href="#shayari">Shayari ✨</a>
+          <a href="#countdown">Birthday Message 🎂</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="site-shell">
+      <section id="home" class="hero section reveal">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">My favorite person, my forever home</p>
+            <h2>Happy Birthday, <span id="heroName">Her Name</span> ❤️</h2>
+            <p class="birthday-date" id="birthdayDateLabel">Birthday Date</p>
+            <p class="hero-message">
+              You are the warmth in my mornings, the peace in my chaos, and the
+              love I want to keep choosing every single day.
+            </p>
+            <div class="hero-actions">
+              <a href="#story" class="primary-btn">Celebrate Us ✨</a>
+              <a href="#memories" class="secondary-btn">See Our Moments</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="photo-frame">
+              <img
+                id="heroPhoto"
+                src="assets/photos/hero.jpg"
+                alt="Portrait of my girlfriend"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="section story-section reveal">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Our journey</p>
+            <h3>Our Story</h3>
+          </div>
+          <div id="storyTimeline" class="story-timeline" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="memories" class="section reveal">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Treasured moments</p>
+            <h3>Memories Gallery</h3>
+          </div>
+          <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="video" class="section reveal">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Captured in motion</p>
+            <h3>Our Little Moments 🎬</h3>
+          </div>
+          <div id="videoGallery" class="video-gallery" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="notes" class="section reveal">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">A little love note</p>
+            <h3>Things I Love About You ❤️</h3>
+          </div>
+          <div id="notesContainer" class="notes-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="shayari" class="section shayari-section reveal">
+        <div class="container shayari-inner">
+          <div class="section-heading center light">
+            <p class="eyebrow">For your heart</p>
+            <h3>Shayari ✨</h3>
+          </div>
+          <div class="shayari-card">
+            <div id="shayariText" class="shayari-text"></div>
+            <div class="shayari-controls">
+              <button id="prevShayari" class="icon-btn" type="button" aria-label="Previous shayari">←</button>
+              <button id="nextShayari" class="icon-btn" type="button" aria-label="Next shayari">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="letter" class="section letter-section reveal">
+        <div class="container letter-wrap">
+          <div class="section-heading center">
+            <p class="eyebrow">My heart in words</p>
+            <h3>Just For You 💌</h3>
+          </div>
+          <div class="letter-paper">
+            <button id="readLetterBtn" class="primary-btn" type="button">
+              Read My Heart ❤️
+            </button>
+            <div id="letterContent" class="letter-content" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="countdown" class="section reveal">
+        <div class="container countdown-wrap">
+          <div class="section-heading center">
+            <p class="eyebrow">Your special day</p>
+            <h3>Your Special Day</h3>
+          </div>
+          <div id="countdownTimer" class="countdown-timer" aria-live="polite">
+            <div class="countdown-card">
+              <span class="countdown-number" id="days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="final-surprise" class="section reveal final-surprise-section">
+        <div class="container final-surprise-wrap">
+          <p class="eyebrow">One final surprise</p>
+          <h3>One Last Surprise...</h3>
+          <button id="finalSurpriseBtn" class="primary-btn" type="button">
+            Click Me ❤️
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div class="container footer-inner">
+        <div class="footer-hero">
+          <p class="eyebrow">Forever and always</p>
+          <h3>Happy Birthday, My Love ❤️</h3>
+          <p>
+            Here's to more memories,<br />
+            more laughter,<br />
+            more adventures,<br />
+            and countless moments together.
+          </p>
+        </div>
+
+        <div class="signature-block">
+          <p>With all my love,</p>
+          <h4 id="yourName">Your Name ❤️</h4>
+        </div>
+
+        <img
+          src="assets/photos/hero1.jpg"
+          alt="A final romantic memory together"
+          class="footer-photo"
+        />
+      </div>
+    </footer>
+
+    <div class="music-fab" id="musicFab" aria-label="Toggle music">
+      <button id="toggleMusicBtn" type="button" aria-label="Play or pause music">
+        ♫
+      </button>
+    </div>
+
+    <aside class="music-player" id="musicPlayer" aria-label="Background music player">
+      <div class="music-header">
+        <span class="music-label">Our Song</span>
+        <button id="closeMusicBtn" class="mini-btn" type="button" aria-label="Close music player">×</button>
+      </div>
+      <div class="music-meta">
+        <div class="music-icon">♫</div>
+        <div>
+          <strong id="songTitle">Our Song</strong>
+          <small id="songArtist">For my love</small>
+        </div>
+      </div>
+      <audio id="backgroundMusic" preload="metadata" loop></audio>
+      <div class="music-controls">
+        <button id="playPauseBtn" type="button" aria-label="Play or pause music">Play</button>
+        <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Volume control" />
+      </div>
+      <div class="progress-wrap">
+        <span id="currentTime">0:00</span>
+        <input id="progressBar" type="range" min="0" max="100" value="0" aria-label="Song progress" />
+        <span id="totalTime">0:00</span>
+      </div>
+    </aside>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
+      <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="Memory photo" />
+        <p id="lightboxCaption"></p>
+      </div>
+      <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+    </div>
+
+    <div class="letter-modal" id="letterModal" aria-hidden="true">
+      <div class="letter-modal-card">
+        <button class="modal-close" id="letterModalClose" type="button" aria-label="Close letter">×</button>
+        <div class="letter-modal-inner">
+          <p class="eyebrow">My dearest love</p>
+          <h4>For You ❤️</h4>
+          <div id="letterModalContent" class="letter-modal-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surprise-overlay" id="surpriseOverlay" aria-live="polite" aria-hidden="true">
+      <div class="surprise-message-card">
+        <p class="eyebrow">For my favorite person</p>
+        <h4>One Last Surprise...</h4>
+        <p id="surpriseText"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
