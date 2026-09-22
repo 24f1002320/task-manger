@@ -116,7 +116,7 @@ const shayaris = [
 const videos = [
   { src: "assets/videos/v1.mp4", caption: "Little happy moments" },
   { src: "assets/videos/v2.mp4", caption: "A memory we will always keep" },
-  { src: "assets/videos/v4.mp4", caption: "The kind of moments that make life beautiful" },
+  { src: "assets/videos/v3.mp4", caption: "The kind of moments that make life beautiful" },
 ];
 
 const galleryImages = [
