@@ -114,8 +114,8 @@ const shayaris = [
 // Example: "assets/videos/video1.mp4"
 // ------------------------------------------------------------
 const videos = [
-  { src: "assets/videos/v1.mp4", caption: "Our little happy moments" },
-  { src: "assets/videos/video2.mp4", caption: "A memory we will always keep" },
+  { src: "assets/videos/v1.mp4", caption: "Little happy moments" },
+  { src: "assets/videos/v2.mp4", caption: "A memory we will always keep" },
   { src: "assets/videos/video1.mp4", caption: "The kind of moments that make life beautiful" },
 ];
 
