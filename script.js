@@ -38,7 +38,7 @@ const memories = [
   },
   {
     date: "July 2023",
-    title: "Our First Conversation",
+    title: "Our First Conversation (Remaining)",
     note: "We talked for hours and it felt like time had slowed down.",
     location: "A coffee date",
     image: "assets/photos/h3.jpg",
@@ -55,7 +55,7 @@ const memories = [
   {
     date: "December 2023",
     title: "Our Favorite Memory",
-    note: "The kind of night that felt like a movie and a dream at once.",
+    note: "Whenever you present, you make every moment memorable.",
     location: "Under the lights",
     image: "assets/photos/h5.jpg",
     description: "It was one of those moments I knew I wanted to keep forever.",
@@ -116,7 +116,7 @@ const shayaris = [
 const videos = [
   { src: "assets/videos/v1.mp4", caption: "Little happy moments" },
   { src: "assets/videos/v2.mp4", caption: "A memory we will always keep" },
-  { src: "assets/videos/video1.mp4", caption: "The kind of moments that make life beautiful" },
+  { src: "assets/videos/v4.mp4", caption: "The kind of moments that make life beautiful" },
 ];
 
 const galleryImages = [
